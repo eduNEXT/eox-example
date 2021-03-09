@@ -44,7 +44,7 @@ class EoxExampleConfig(AppConfig):
         },
         "view_context_config": {
             "lms.djangoapp": {
-                "course_dashboard": "eox_exampl.context.get_dashboard_context"
+                "course_dashboard": "eox_example.context.get_dashboard_context"
             }
         },
         "actions_config": {
