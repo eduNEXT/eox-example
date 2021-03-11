@@ -1,7 +1,7 @@
 import logging
 
 log = logging.getLogger(__name__)
-
+from openedx.core.djangoapps.user_authn.exceptions import UnathorizedLoginByHookException
 
 def pre_login(request):
     """
@@ -9,4 +9,4 @@ def pre_login(request):
     """
     email = request.POST.get("email") or ""
     if email.startswith("staff"):
-        return {"cannot_login": True}
+        raise UnathorizedLoginByHookException("not authorized to login by hook. Your email starts with staff, that is not allowed.")
